@@ -30,8 +30,8 @@ class App extends Component{
       <Fragment>
         <Header />
         <br />
-        <div className="container">
-          <input className="searchBox" type="text" placeholder="Enter City Name..." />
+        <div className="container input-group mb-3 col-6">
+          <input className="searchBox form-control" type="text" placeholder="Enter City Name..." />
           <button className="searchButton" type="submit">Search</button>
         </div>
       </Fragment>
