@@ -36,6 +36,7 @@ class App extends Component{
   constructor(){
     super();
     this.state = {
+
       city: undefined,
       country: undefined,
       current_date: undefined,
@@ -79,11 +80,11 @@ class App extends Component{
         pressure: response.main.pressure,
         humidity: response.main.humidity,
         wind: response.wind.speed,
-        min_temp: response.main.temp_min,
-        max_temp: response.main.temp_max,
+        min_temp: response.main.temp_min - 273.15,
+        max_temp: response.main.temp_max - 273.15,
         sunrise_timestamp: sunrise,
         sunset_timestamp: sunset,
-        weather: response.weather.main
+        weather: response.weather[0].main
       }
     )
   }
@@ -96,9 +97,10 @@ class App extends Component{
           <input className="searchBox form-control" type="text" placeholder="Enter City Name..." />
           <button className="searchButton" type="submit">Search</button>
         </div>
-        {/* <Weather city={this.state.city} country={this.state.country} date={this.state.current_date}/> */}
-
-          
+        <Weather city={this.state.city} country={this.state.country} date={this.state.current_date}
+                 temperature={this.state.temperature} pressure={this.state.pressure} humidity={this.state.humidity}
+                 wind={this.state.wind} min_temp={this.state.min_temp} max_temp={this.state.max_temp}
+                 sunrise={this.state.sunrise_timestamp} sunset={this.state.sunset_timestamp} weather={this.state.weather}/>
       </Fragment>
   )}
 }
