@@ -2,6 +2,14 @@ import React, {Component, Fragment} from 'react';
 // import logo from './logo.svg';
 import './App.css';
 import Header from "./Header";
+import Weather from "./Weather";
+import { async } from 'q';
+import 'weather-icons/css/weather-icons.css';
+
+
+//api.openweathermap.org/data/2.5/weather?q=London
+const api_key = "7644d0b649975c44771989a2c6652b75";
+
 
 // function App() {
 //   return (
@@ -25,6 +33,60 @@ import Header from "./Header";
 // }
 
 class App extends Component{
+  constructor(){
+    super();
+    this.state = {
+      city: undefined,
+      country: undefined,
+      current_date: undefined,
+      humidity: undefined,
+      pressure: undefined, 
+      max_temp: undefined, 
+      min_temp: undefined,
+      sunrise_timestamp: undefined,
+      sunset_timestamp: undefined,
+      wind: undefined,
+      temperature: undefined,
+      weather: undefined
+
+    };
+    this.getWeather();
+  }
+
+  getWeather = async () => {
+    const apiCall = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=Mumbai&appid=${api_key}`);
+    const response = await apiCall.json();
+
+    var ms_date = response.dt*1000;
+    var date = Date(Date.now(ms_date));
+    date = date.slice(0, 15);
+
+    var ms_sunrise = response.sys.sunrise*1000;
+    var sunrise = Date(Date.now(ms_sunrise));
+    sunrise = sunrise.slice(16, 24);
+
+    var ms_sunset = response.sys.sunset*1000;
+    var sunset = Date(Date.now(ms_sunset));
+    sunset = sunset.slice(16, 24);
+    
+    console.log(response);
+    this.setState(
+      {
+        city: response.name,
+        country: response.sys.country,
+        current_date: date,
+        temperature: response.main.temp - 273.15,
+        pressure: response.main.pressure,
+        humidity: response.main.humidity,
+        wind: response.wind.speed,
+        min_temp: response.main.temp_min,
+        max_temp: response.main.temp_max,
+        sunrise_timestamp: sunrise,
+        sunset_timestamp: sunset,
+        weather: response.weather.main
+      }
+    )
+  }
   render(){
     return(
       <Fragment>
@@ -34,8 +96,12 @@ class App extends Component{
           <input className="searchBox form-control" type="text" placeholder="Enter City Name..." />
           <button className="searchButton" type="submit">Search</button>
         </div>
+        {/* <Weather city={this.state.city} country={this.state.country} date={this.state.current_date}/> */}
+
+          
       </Fragment>
   )}
 }
+
 
 export default App;
