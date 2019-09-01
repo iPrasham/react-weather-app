@@ -4,6 +4,8 @@
     box-shadow: 1px 3px 10px 2px rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: flex-start;
+    font-family: Bahnschrift Light;
+    color:#504d4df2
 }
 .temp
 {
@@ -13,4 +15,8 @@
 h1
 {
     font-size: 40px;
+}
+.weatherdata
+{
+    font-size: 18px;
 }

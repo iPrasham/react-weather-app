@@ -6,12 +6,16 @@ const Weather = function(props){
         <div className="container weatherContainer">
             <div className="row">
                 <div className="col-lg-12 location"><p>{props.city}, {props.country}, {props.date}</p></div>
-                <div className="col-lg-7 temp"><h1>{props.temperature}&deg;C</h1></div>
+                <div className="col-lg-7 temp">
+                    <h1>{props.temperature}&deg;C</h1>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <i className={`wi ${props.weatherIcon} display-2`} />
+                </div>
                 <div className="col-lg-5 weatherdataDiv">
-                    <p clasName="weatherdata">Weather: {props.weather} <br/> Wind: {props.wind} km/hr</p>
-                    <p clasName="weatherdata">Humidity: {props.humidity}% <br/> Pressure: {props.pressure} Pa</p>
-                    <p clasName="weatherdata">Max Temp: {props.max_temp}&deg;C <br/> Min Temp: {props.min_temp}&deg;C</p>
-                    <p clasName="weatherdata">Sunrise: {props.sunrise} <br/> Sunset: {props.sunset}</p>
+                    <p className="weatherdata">Weather: <b>{props.weather}</b> <br/> Wind: <b>{props.wind}</b> km/hr</p>
+                    <p className="weatherdata">Humidity: <b>{props.humidity}%</b> <br/> Pressure: <b>{props.pressure} Pa</b></p>
+                    <p className="weatherdata">Max Temp: <b>{props.max_temp}&deg;C</b> <br/> Min Temp: <b>{props.min_temp}&deg;C</b></p>
+                    <p className="weatherdata">Sunrise: {props.sunrise} <br/> Sunset: <b>{props.sunset}</b></p>
                 </div>
             </div>
         </div>
