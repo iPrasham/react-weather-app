@@ -5,7 +5,8 @@
     display: flex;
     justify-content: flex-start;
     font-family: Bahnschrift Light;
-    color:#504d4df2
+    color:#504d4df2;
+    min-height: 70px;
 }
 .temp
 {
@@ -18,5 +19,12 @@ h1
 }
 .weatherdata
 {
+    font-size: 18px;
+}
+.errorContainer
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 18px;
 }
