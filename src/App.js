@@ -2,13 +2,13 @@ import React, {Component, Fragment} from 'react';
 
 import './App.css';
 
-import Header from "./components/Header";
+import Header from "./components/header/Header";
 
-import Weather from "./components/Weather";
+import Weather from "./components/weather/Weather";
 
-import Form from "./components/Form";
+import Form from "./components/form/Form";
 
-import SearchingCity from "./components/SearchingCity"
+import SearchingCity from "./components/searchingCity/SearchingCity"
 
 import "weather-icons/css/weather-icons.min.css";
 
@@ -165,7 +165,7 @@ class App extends Component{
                  weather={this.state.weather}
                  weatherIcon={this.state.icon}
                  error={this.state.error}
-          />}
+        />} 
       </Fragment>
   )}
 }

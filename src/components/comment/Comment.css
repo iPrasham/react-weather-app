@@ -1,0 +1,22 @@
+.commentButton
+{
+    color: white;
+    background: #8A00F6;
+}
+.commentContainer
+{
+    background: white;
+    display: flex;
+    box-shadow: 1px 3px 10px 2px rgba(0, 0, 0, 0.1);
+    align-items: center;
+}
+textarea
+{
+    background: #F0E6FF !important;
+    margin-top: 10px;
+    border-radius: 0px;
+}
+textarea::placeholder
+{
+    font-family: 'Courier New', Courier, monospace;
+}

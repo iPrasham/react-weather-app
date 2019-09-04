@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import "./Form.css";
-import "./Weather.css";
-// import { get } from 'http';
 
 class Form extends Component
 {
