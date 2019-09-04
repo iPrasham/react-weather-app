@@ -1,13 +1,21 @@
 import React, {Component, Fragment} from 'react';
-// import logo from './logo.svg';
+
 import './App.css';
-import Header from "./Header";
-import Weather from "./Weather";
-import Form from "./Form";
-// import { async } from 'q';
+
+import Header from "./components/Header";
+
+import Weather from "./components/Weather";
+
+import Form from "./components/Form";
+
+import SearchingCity from "./components/SearchingCity"
+
 import "weather-icons/css/weather-icons.min.css";
 
+
 const api_key = "7644d0b649975c44771989a2c6652b75";
+
+
 
 class App extends Component{
   constructor(){
@@ -28,7 +36,8 @@ class App extends Component{
       weather: undefined,
       icon: undefined,
       main: undefined,
-      error: undefined
+      error: undefined,
+      isSearching: false
     };
 
     this.weatherIcon = {
@@ -79,10 +88,13 @@ class App extends Component{
 
     e.preventDefault();
 
-      const city = e.target.elements.city.value;
+    this.setState({
+      isSearching: true
+    });
 
-      const apiCall = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api_key}`);
-      const response = await apiCall.json();
+    const city = e.target.elements.city.value;
+    const apiCall = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api_key}`);
+    const response = await apiCall.json();
 
       if(response.cod === 200)
       {
@@ -117,25 +129,29 @@ class App extends Component{
             sunrise_timestamp: sunrise,
             sunset_timestamp: sunset,
             weather: response.weather[0].main,
-            error: false
-
+            error: false,
+            isSearching:false
           });
+
+         
         
         this.get_WeatherIcon(this.weatherIcon, response.weather[0].id);
     }
     else {
       this.setState({
-        error: true
+        error: true,
+        isSearching: false
       });
-    }
+    }  
   }
+
   render(){
     return(
       <Fragment>
         <Header />
-        <br />
-        <Form loadWeather={this.getWeather} />
-        <Weather city={this.state.city} 
+        <Form loadWeather={this.getWeather}/>
+        {this.state.isSearching && <SearchingCity />}
+        {!this.state.isSearching && <Weather city={this.state.city} 
                  country={this.state.country} 
                  date={this.state.current_date}
                  temperature={this.state.temperature} 
@@ -149,7 +165,7 @@ class App extends Component{
                  weather={this.state.weather}
                  weatherIcon={this.state.icon}
                  error={this.state.error}
-          />
+          />}
       </Fragment>
   )}
 }

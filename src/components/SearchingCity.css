@@ -1,0 +1,12 @@
+.searchContainer
+{
+    background: white;
+    box-shadow: 1px 3px 10px 2px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: Bahnschrift Light;
+    color:#504d4df2;
+    min-height: 70px;
+    font-size: 18px;
+}
