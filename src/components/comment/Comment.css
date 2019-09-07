@@ -1,22 +1,51 @@
-.commentButton
-{
-    color: white;
-    background: #8A00F6;
-}
 .commentContainer
 {
     background: white;
-    display: flex;
     box-shadow: 1px 3px 10px 2px rgba(0, 0, 0, 0.1);
-    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 10px;
 }
-textarea
+.commentBox
 {
-    background: #F0E6FF !important;
-    margin-top: 10px;
+    background: #F0E6FF;
     border-radius: 0px;
+    width: inherit;
+    border: 1px solid lightgray;
+    margin-top: 10px;
+    padding: 10px;
 }
 textarea::placeholder
 {
     font-family: 'Courier New', Courier, monospace;
+}
+.commentButton
+{
+    color: white;
+    background: #8A00F6;
+    margin-left: 14px;
+    padding: 5px 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.comments
+{
+    background: #F0E6FF;
+    margin: 15px 14px;
+    padding: 10px;
+}
+.commentHeading
+{
+    display: flex;
+    align-items: center;
+    min-height: 70px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.allComments
+{
+    margin: 0px 14px;
+}
+.commentText
+{
+    font-size: 17px;
+    padding-left: 10px;
+    font-family: Arial, Helvetica, sans-serif;
 }

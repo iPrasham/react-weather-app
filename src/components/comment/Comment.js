@@ -1,15 +1,34 @@
-import React from 'react';
+import React, {Fragment} from 'react';
+
 import "./Comment.css";
 
+import "font-awesome/css/font-awesome.min.css";
+
 const Comment = function(){
-    return <div className="container commentContainer">
-            <div className="form-group">
-                <textarea className="form-control" rows="3" cols="200" placeholder="Enter your comment here..."></textarea>
+    return (
+        <Fragment>
+            <div className="container commentContainer">
+                 <div class="row"> 
+                    <div className="col">
+                        <textarea className="commentBox" placeholder="Enter your comment here..."></textarea>
+                    </div>
+                    <div className="w-100">
+                        <button type="button" className="commentButton">Comment</button>    
+                    </div>
+                    <div className="w-100 comments">
+                        <div className="row">
+                            <div className="col commentHeading">
+                                <h4><b>Comments (1)</b></h4>
+                            </div>
+                            <div className="w-100 allComments">
+                                <i className="fa fa-user fa-lg"><span className="commentText">The weather is quite nice.</span></i>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div className="form-group"> 
-                <button type="submit" className="commentButton">Comment</button>
-            </div>
-    </div>
-}
+        </Fragment>
+    )}
 
 export default Comment;
