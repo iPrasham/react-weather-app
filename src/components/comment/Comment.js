@@ -32,9 +32,9 @@ class Comment extends Component{
         }
     }
 
-    commentFunction(item) {
+    commentFunction(item, index) {
         return (
-            <div className="w-100 allComments">
+            <div className="w-100 allComments" key={index}>
                 <i className="fa fa-user fa-lg"><span className="commentText">{item}</span></i>    
             </div>
         );
@@ -47,7 +47,7 @@ class Comment extends Component{
             <Fragment>
                 <div className="container commentContainer">
                 <form  onSubmit = {(e) => this.handleComments(e)}>
-                     <div class="row"> 
+                     <div className="row"> 
                         <div className="col">
                             <textarea className="commentBox" id="commentBox" placeholder="Enter your comment here..."></textarea>
                         </div>

@@ -12,6 +12,8 @@ import SearchingCity from "./components/searchingCity/SearchingCity"
 
 import "weather-icons/css/weather-icons.min.css";
 
+import "bootstrap/dist/css/bootstrap.min.css";
+
 const api_key = "7644d0b649975c44771989a2c6652b75";
 
 
