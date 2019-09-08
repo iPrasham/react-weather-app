@@ -42,6 +42,7 @@ textarea::placeholder
 .allComments
 {
     margin: 0px 14px;
+    padding-bottom: 10px;
 }
 .commentText
 {

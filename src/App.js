@@ -141,7 +141,7 @@ class App extends Component{
         error: true,
         isSearching: false
       });
-    }  
+    }
   }
 
   render(){
